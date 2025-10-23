@@ -5,7 +5,7 @@ services:
       - docker_network
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
@@ -87,7 +87,7 @@ services:
       retries: 20
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
@@ -131,7 +131,7 @@ services:
       - docker_network
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
     command:
       - bench
       - worker
@@ -150,7 +150,7 @@ services:
       - docker_network
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
     command:
       - bench
       - worker
@@ -169,7 +169,7 @@ services:
       - docker_network
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
     volumes:
       - redis-queue-data:/data
 
@@ -187,7 +187,7 @@ services:
       - docker_network
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
     command:
       - bench
       - schedule
@@ -201,7 +201,7 @@ services:
       - docker_network
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
     command:
       - node
       - /home/frappe/frappe-bench/apps/frappe/socketio.js
