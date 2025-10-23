@@ -221,5 +221,5 @@ volumes:
   logs:
 
 networks:
-  frappe_network:
+  dokploy_network:
     driver: bridge
