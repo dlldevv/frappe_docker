@@ -102,7 +102,7 @@ services:
   frontend:
     image: frappe/erpnext:v15.84.0
     networks:
-      - docker_network
+      - dokploy_network
     depends_on:
       - websocket
     deploy:
