@@ -107,7 +107,7 @@ services:
       - websocket
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
     command:
       - nginx-entrypoint.sh
     environment:
@@ -179,7 +179,7 @@ services:
       - dokploy_network
     deploy:
       restart_policy:
-        condition: on-failure
+        condition: unless-stopped
 
   scheduler:
     image: frappe/erpnext:v15.84.0
