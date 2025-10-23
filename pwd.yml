@@ -2,7 +2,7 @@ services:
   backend:
     image: frappe/erpnext:v15.84.0
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: unless-stopped
@@ -18,7 +18,7 @@ services:
   configurator:
     image: frappe/erpnext:v15.84.0
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: none
@@ -47,7 +47,7 @@ services:
   create-site:
     image: frappe/erpnext:v15.84.0
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: none
@@ -80,7 +80,7 @@ services:
   db:
     image: mariadb:10.6
     networks:
-      - docker_network
+      - dokploy_network
     healthcheck:
       test: mysqladmin ping -h localhost --password=admin
       interval: 1s
@@ -128,7 +128,7 @@ services:
   queue-long:
     image: frappe/erpnext:v15.84.0
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: unless-stopped
@@ -147,7 +147,7 @@ services:
   queue-short:
     image: frappe/erpnext:v15.84.0
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: unless-stopped
@@ -166,7 +166,7 @@ services:
   redis-queue:
     image: redis:6.2-alpine
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: unless-stopped
@@ -176,7 +176,7 @@ services:
   redis-cache:
     image: redis:6.2-alpine
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: on-failure
@@ -184,7 +184,7 @@ services:
   scheduler:
     image: frappe/erpnext:v15.84.0
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: unless-stopped
@@ -198,7 +198,7 @@ services:
   websocket:
     image: frappe/erpnext:v15.84.0
     networks:
-      - docker_network
+      - dokploy_network
     deploy:
       restart_policy:
         condition: unless-stopped
